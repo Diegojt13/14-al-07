@@ -208,7 +208,7 @@ body{
   position:absolute;
   left:50%;
   top:7%;
-  width:min(92%, 520px);
+  width:min(92%, 560px);
   transform:translateX(-50%) translateY(18px) scale(.98);
   background:rgba(255,250,247,.98);
   color:var(--ink);
@@ -219,6 +219,7 @@ body{
   opacity:0;
   transition:all .8s cubic-bezier(.2,.8,.2,1);
   pointer-events:none;
+  overflow:visible;
 }
 
 .letter::before{
@@ -273,13 +274,15 @@ body{
 
 .letter-body{
   font-size:1rem;
-  line-height:1.85;
+  line-height:1.95;
   color:#43313d;
-  min-height:180px;
+  white-space:normal;
+  word-break:normal;
+  overflow:visible;
 }
 
 .letter-body p{
-  margin:0 0 14px;
+  margin:0 0 16px;
 }
 
 .letter-sign{
@@ -355,7 +358,7 @@ body{
     grid-template-columns:1fr;
   }
   .letter{
-    width:min(96%, 520px);
+    width:min(96%, 560px);
   }
   .letter-head{
     align-items:center;
@@ -371,5 +374,6 @@ body{
   }
   .letter-body{
     font-size:.96rem;
+    line-height:1.9;
   }
 }
