@@ -10,12 +10,22 @@ const hearts = document.getElementById('hearts');
 const letterKicker = document.getElementById('letterKicker');
 const letterTitle = document.getElementById('letterTitle');
 const dayBadge = document.getElementById('dayBadge');
+const photoSlideshow = document.getElementById('photoSlideshow');
+
+let slideshowInterval = null;
+
+// Rutas de las imágenes que rotarán exclusivamente en el Día 14 (puedes añadir todas las que quieras)
+const finalDayPhotos = [
+  "foto_nataly1.jpg",
+  "foto_nataly2.jpg",
+  "foto_nataly3.jpg"
+];
 
 const letters = [
   "Mi amor, hoy empiezo este detalle con mucha ilusión, porque no quería dejar pasar la oportunidad de recordarte lo importante que eres para mí. Eres una persona que me hace sentir tranquilo, feliz y afortunado, y cada día contigo confirma que lo bonito sí existe.",
   "Amor mío, hay algo en ti que me encanta y no siempre sé cómo explicarlo. No es solo tu belleza ni solo tu forma de hablar; es todo junto, porque tú tienes una magia que me atrapa sin que yo haga nada para evitarlo.",
-  "Mi niña bonita, a veces apareces en mi mente sin avisar, y cuando eso pasa, casi siempre me sacas una sonrisa. Tienes esa forma tan especial de quedarte en los pensamientos de uno, como si fueras imposible de olvidar.",
-  "Amor, contigo aprendí a querer de una forma más bonita. Antes de ti, muchas cosas eran normales; contigo, todo se volvió más especial, porque hasta los días comunes tienen algo diferente cuando sé que existes in mi vida.",
+  "Mi niña bonita, a veces apareces in mi mente sin avisar, y cuando eso pasa, casi siempre me sacas una sonrisa. Tienes esa forma tan especial de quedarte en los pensamientos de uno, como si fueras imposible de olvidar.",
+  "Amor, contigo aprendí a querer de una forma más bonita. Antes de ti, muchas cosas eran normales; contigo, todo se volvió más especial, porque hasta los días comunes tienen algo diferente cuando sé que existes en mi vida.",
   "Mi cielo, me haces falta incluso cuando estás cerca, porque me acostumbro rapidísimo a tu presencia y a todo lo que me haces sentir. Eres de esas personas que se vuelven necesarias sin darse cuenta, y eso para mí es algo demasiado lindo.",
   "Mi amor hermoso, hay momentos contigo que se quedan grabados sin esfuerzo, como si el corazón mismo los guardara por su cuenta. Todo lo que vivimos, aunque sea pequeño, termina teniendo un valor enorme para mí.",
   "Mi niña, quiero decirte algo que siento desde hace rato: tú tienes una manera preciosa de hacer que todo valga más. Más bonito, más profundo, más real. Y aunque a veces me cueste ponerlo en palabras, mi corazón sí entiende perfectamente lo que siente por ti.",
@@ -59,6 +69,8 @@ function saveDay(day) {
 
 function renderDay(index) {
   const day = index + 1;
+  const letterLayout = document.querySelector('.letter-layout');
+  
   dayLabel.textContent = `Día ${day} de ${letters.length}`;
   dayMood.textContent = index < LAST_INDEX ? 'Una carta más para acercarnos' : 'Ya llegó el gran día';
   progressFill.style.width = `${(day / letters.length) * 100}%`;
@@ -68,9 +80,41 @@ function renderDay(index) {
   
   letterBody.innerHTML = `<p>${letters[index]}</p>`;
   
-  if(index === LAST_INDEX) {
+  // Reseteo completo del carrusel de imágenes
+  if (slideshowInterval) clearInterval(slideshowInterval);
+  photoSlideshow.innerHTML = ''; 
+
+  // LÓGICA DE CONTROL EXCLUSIVA PARA EL DÍA 14
+  if (index === LAST_INDEX) {
+    letterLayout.classList.add('has-photos');
+    photoSlideshow.classList.add('active');
     special.classList.add('show');
+
+    // Generación dinámica de las imágenes
+    finalDayPhotos.forEach((photoUrl, i) => {
+      const img = document.createElement('img');
+      img.src = photoUrl;
+      img.alt = `Momento especial - ${i + 1}`;
+      img.className = 'letter-photo';
+      if (i === 0) img.classList.add('active');
+      photoSlideshow.appendChild(img);
+    });
+
+    // Animación automática cada 3 segundos si hay más de una foto
+    if (finalDayPhotos.length > 1) {
+      let currentPhotoIdx = 0;
+      const imgElements = photoSlideshow.getElementsByClassName('letter-photo');
+      
+      slideshowInterval = setInterval(() => {
+        imgElements[currentPhotoIdx].classList.remove('active');
+        currentPhotoIdx = (currentPhotoIdx + 1) % imgElements.length;
+        imgElements[currentPhotoIdx].classList.add('active');
+      }, 3000);
+    }
   } else {
+    // Días 1 al 13: Diseño limpio sin área de imágenes
+    letterLayout.classList.remove('has-photos');
+    photoSlideshow.classList.remove('active');
     special.classList.remove('show');
   }
 }
