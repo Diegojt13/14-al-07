@@ -9,111 +9,151 @@ const music = document.getElementById('music');
 const hearts = document.getElementById('hearts');
 
 const letters = [
-  "Mi amor, hoy empiezo este detalle con mucha ilusión, porque no quería dejar pasar la oportunidad de recordarte lo importante que eres para mí. Eres una persona que me hace sentir tranquilo, feliz y afortunado, y cada día contigo confirma que lo bonito sí existe.",
-  "Amor mío, hay algo en ti que me encanta y no siempre sé cómo explicarlo. No es solo tu belleza ni solo tu forma de hablar; es todo junto, porque tú tienes una magia que me atrapa sin que yo haga nada para evitarlo.",
-  "Mi niña bonita, a veces apareces en mi mente sin avisar, y cuando eso pasa, casi siempre me sacas una sonrisa. Tienes esa forma tan especial de quedarte en los pensamientos de uno, como si fueras imposible de olvidar.",
-  "Amor, contigo aprendí a querer de una forma más bonita. Antes de ti, muchas cosas eran normales; contigo, todo se volvió más especial, porque hasta los días comunes tienen algo diferente cuando sé que existes en mi vida.",
-  "Mi cielo, me haces falta incluso cuando estás cerca, porque me acostumbro rapidísimo a tu presencia y a todo lo que me haces sentir. Eres de esas personas que se vuelven necesarias sin darse cuenta, y eso para mí es algo demasiado lindo.",
-  "Mi amor hermoso, hay momentos contigo que se quedan grabados sin esfuerzo, como si el corazón mismo los guardara por su cuenta. Todo lo que vivimos, aunque sea pequeño, termina teniendo un valor enorme para mí.",
-  "Mi niña, quiero decirte algo que siento desde hace rato: tú tienes una manera preciosa de hacer que todo valga más. Más bonito, más profundo, más real. Y aunque a veces me cueste ponerlo en palabras, mi corazón sí entiende perfectamente lo que siente por ti.",
-  "Amor de mi vida, si alguna vez te has preguntado qué es lo que más valoro de ti, la respuesta es sencilla: tu manera de ser. Detrás de tu belleza hay algo todavía más valioso, y es esa forma tan tuya de transmitir ternura, seguridad y alegría.",
-  "Mi corazón, hoy pensé en lo especial que se volvió mi rutina desde que estás. No porque todo tenga que ser perfecto, sino porque tú le das una chispa distinta a mis días. Todo se siente mejor cuando sé que formas parte de mi historia.",
-  "Amor bonito, es increíble cómo una sola persona puede llegar a cambiar tanto la manera en que uno siente. Tú lo hiciste conmigo. Llegaste y sin hacer ruido te fuiste metiendo en mis pensamientos, en mis días y en mi corazón.",
-  "Mi princesa, quiero aprovechar esta carta para agradecerte por todo lo bonito que has sido conmigo. Por tu paciencia, por tu ternura, por tus palabras y por tu forma de hacer sentir querido a alguien. Eso vale muchísimo, y yo no lo olvido.",
-  "Mi amor, cada vez que pienso en ti, me doy cuenta de que te quiero de una forma muy bonita. No apresurada, no superficial, no cualquiera. Te quiero de verdad, con calma, con emoción y con una sinceridad que me nace del alma.",
-  "Mi niña hermosa, ya casi llegamos al gran día, y no quería dejar pasar esta carta sin decirte que me emociona muchísimo todo lo que hemos construido. Estos días han sido una forma linda de acercarme más a ti con cada palabra.",
-  "Hoy es nuestro gran día, y esta carta lleva todo lo que no siempre sé decir con palabras. Gracias por acompañarme en estos 14 días y por hacer tan bonito este tiempo juntos."
+"Mi amor, hoy empiezo este detalle con mucha ilusión, porque no quería dejar pasar la oportunidad de recordarte lo importante que eres para mí. Eres una persona que me hace sentir tranquilo, feliz y afortunado, y cada día contigo confirma que lo bonito sí existe.",
+"Amor mío, hay algo en ti que me encanta y no siempre sé cómo explicarlo. No es solo tu belleza ni solo tu forma de hablar; es todo junto, porque tú tienes una magia que me atrapa sin que yo haga nada para evitarlo.",
+"Mi niña bonita, a veces apareces en mi mente sin avisar, y cuando eso pasa, casi siempre me sacas una sonrisa. Tienes esa forma tan especial de quedarte en los pensamientos de uno, como si fueras imposible de olvidar.",
+"Amor, contigo aprendí a querer de una forma más bonita. Antes de ti, muchas cosas eran normales; contigo, todo se volvió más especial, porque hasta los días comunes tienen algo diferente cuando sé que existes en mi vida.",
+"Mi cielo, me haces falta incluso cuando estás cerca, porque me acostumbro rapidísimo a tu presencia y a todo lo que me haces sentir. Eres de esas personas que se vuelven necesarias sin darse cuenta, y eso para mí es algo demasiado lindo.",
+"Mi amor hermoso, hay momentos contigo que se quedan grabados sin esfuerzo, como si el corazón mismo los guardara por su cuenta. Todo lo que vivimos, aunque sea pequeño, termina teniendo un valor enorme para mí.",
+"Mi niña, quiero decirte algo que siento desde hace rato: tú tienes una manera preciosa de hacer que todo valga más. Más bonito, más profundo, más real. Y aunque a veces me cueste ponerlo en palabras, mi corazón sí entiende perfectamente lo que siente por ti.",
+"Amor de mi vida, si alguna vez te has preguntado qué es lo que más valoro de ti, la respuesta es sencilla: tu manera de ser. Detrás de tu belleza hay algo todavía más valioso, y es esa forma tan tuya de transmitir ternura, seguridad y alegría.",
+"Mi corazón, hoy pensé en lo especial que se volvió mi rutina desde que estás. No porque todo tenga que ser perfecto, sino porque tú le das una chispa distinta a mis días. Todo se siente mejor cuando sé que formas parte de mi historia.",
+"Amor bonito, es increíble cómo una sola persona puede llegar a cambiar tanto la manera en que uno siente. Tú lo hiciste conmigo. Llegaste y sin hacer ruido te fuiste metiendo en mis pensamientos, en mis días y en mi corazón.",
+"Mi princesa, quiero aprovechar esta carta para agradecerte por todo lo bonito que has sido conmigo. Por tu paciencia, por tu ternura, por tus palabras y por tu forma de hacer sentir querido a alguien. Eso vale muchísimo, y yo no lo olvido.",
+"Mi amor, cada vez que pienso en ti, me doy cuenta de que te quiero de una forma muy bonita. No apresurada, no superficial, no cualquiera. Te quiero de verdad, con calma, con emoción y con una sinceridad que me nace del alma.",
+"Mi niña hermosa, ya casi llegamos al gran día, y no quería dejar pasar esta carta sin decirte que me emociona muchísimo todo lo que hemos construido. Estos días han sido una forma linda de acercarme más a ti con cada palabra.",
+`Mi amor Nataly,
+Desde la primera vez que miramos más allá del horario y las tareas del trabajo supe que había algo distinto entre nosotros. Aquella noche en que salimos a tomar, reímos, bailamos y yo te canté "Un perro enamorado", no fue solo diversión: fue el inicio de una conexión que llegó sin filtros, como si ya nos conociéramos de antes. Todo fluyó tan natural y tan rápido que todavía me asombra cómo dos almas se encontraron en medio de una noche cualquiera y comenzaron a encajar.
+
+Recuerdo con claridad el 27 de febrero, cuando terminamos la velada buscando un lugar para descansar. Esa noche en el hotel, entre nervios y miradas sinceras, sentí que algo importante empezaba. No fue necesario apresurarnos; más bien, fue el respeto y la ternura lo que nos selló. Tú, con tu calma, me enseñaste que la cercanía no siempre se mide en prisa sino en confianza. Y eso me hizo quererte aún más.
+
+Poco después, el viaje a la finca el 7 de marzo confirmó lo que intuíamos: bastaba estar juntos para que todo tuviera sentido. La piscina vacía para nosotros dos, el sol, las conversaciones que parecían no tener fin… en cada gesto se fortaleció esa complicidad que apareció tan rápido pero que se siente tan verdadero. Fue allí, en ese espacio sencillo y nuestro, que tomé la decisión de arriesgarme y pedirte que fueras mi novia. Tu “sí” selló una promesa íntima: que podríamos construir algo real sin prisa, con mucha entrega.
+
+Desde entonces hemos vivido momentos que prueban lo único de nuestra conexión: la risa cuando la moto se nos varó, las charlas profundas, el primer “te amo” entre helado y lágrimas en el centro comercial. Esos instantes confirman que lo nuestro no fue casualidad; fue un encuentro entre dos personas que supieron reconocer en el otro compañía, respeto y la voluntad de caminar juntos.
+
+Nataly, lo más hermoso es que esa conexión rápida no fue superficial; vino con compromiso y dulzura. Me haces sentir comprendido y libre al mismo tiempo. Tu mirada me da paz, tu cercanía me inspira y tu apoyo me transforma. Tú te volviste mi motor sin que planeáramos nada grandioso: simplemente nos dejamos sentir y eso nos unió de manera profunda.
+
+Hoy, al celebrar cuatro meses, quiero agradecerte por aceptar esa chispa que encendimos desde el inicio. Gracias por cada risa compartida, por tu paciencia y por creer en el camino que hemos decidido andar. Prometo cuidar la sinceridad que nos trajo hasta aquí: escuchar más, respetar tus tiempos, y proteger esa conexión especial que apareció sin barreras.
+
+Quiero seguir sorprendiéndote, seguir construyendo recuerdos que confirmen lo que sentimos, y seguir dejando que esta conexión nos guíe. Te amo por lo que eres y por lo que somos cuando estamos juntos: dos personas que se encontraron rápido y supieron quedarse.`
 ];
 
 const START = new Date(2026, 5, 24); // 24/06/2026
-const END = new Date(2026, 6, 7);    // 07/07/2026
+const END = new Date(2026, 6, 7); // 07/07/2026
+const TOTAL_DAYS = letters.length; // 14
 
 function localDateKey(d = new Date()) {
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+return ${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')};
 }
 
 function dateOnly(d) {
-  return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+}
+
+function clamp(v, a, b) {
+return Math.max(a, Math.min(v, b));
 }
 
 function todayIndex() {
-  const now = dateOnly(new Date());
-  const diff = Math.floor((now - START) / 86400000);
-  return Math.max(0, Math.min(diff, 13));
+const now = dateOnly(new Date());
+const diff = Math.floor((now - dateOnly(START)) / 86400000);
+return clamp(diff, 0, TOTAL_DAYS - 1);
+}
+
+function safeParseInt(value, fallback = 0) {
+const n = Number(value);
+return Number.isInteger(n) ? n : fallback;
 }
 
 function loadDay() {
-  const savedDate = localStorage.getItem('love_date');
-  const savedDay = Number(localStorage.getItem('love_day'));
-  const key = localDateKey();
+try {
+const savedDate = localStorage.getItem('love_date');
+const savedDay = safeParseInt(localStorage.getItem('love_day'), null);
+const key = localDateKey();
 
-  if (savedDate === key && Number.isInteger(savedDay)) {
-    return savedDay;
-  }
-
-  const day = todayIndex();
-  localStorage.setItem('love_date', key);
-  localStorage.setItem('love_day', String(day));
-  return day;
+if (savedDate === key && Number.isInteger(savedDay)) {
+return clamp(savedDay, 0, TOTAL_DAYS - 1);
 }
 
+const day = todayIndex();
+localStorage.setItem('love_date', key);
+localStorage.setItem('love_day', String(day));
+return day;
+} catch (err) {
+return todayIndex();
+} }
+
 function saveDay(day) {
-  localStorage.setItem('love_date', localDateKey());
-  localStorage.setItem('love_day', String(day));
+try {
+localStorage.setItem('love_date', localDateKey());
+localStorage.setItem('love_day', String(clamp(day, 0, TOTAL_DAYS - 1)));
+} catch (err) { /* ignore */ }
 }
 
 let currentDay = loadDay();
 
 function renderDay(index) {
-  const day = index + 1;
-  dayLabel.textContent = `Día ${day} de 14`;
-  dayMood.textContent = index < 13 ? "Una carta más para acercarnos" : "Ya llegó el gran día";
-  progressFill.style.width = `${(day / 14) * 100}%`;
-  letterBody.innerHTML = `<p>${letters[index]}</p>`;
-  special.classList.toggle('show', index === 13);
+index = clamp(index, 0, TOTAL_DAYS - 1);
+const day = index + 1;
+if (dayLabel) dayLabel.textContent = Día ${day} de ${TOTAL_DAYS};
+if (dayMood) dayMood.textContent = (index < TOTAL_DAYS - 1) ? "Una carta más para acercarnos" : "Ya llegó el gran día";
+if (progressFill) progressFill.style.width = ${(day / TOTAL_DAYS) * 100}%;
+if (letterBody) letterBody.innerHTML = <p>${letters[index].replace(/\n/g, "<br>")}</p>;
+if (special) special.classList.toggle('show', index === TOTAL_DAYS - 1);
 }
 
 function createHeart() {
-  const heart = document.createElement('span');
-  heart.className = 'heart';
-  heart.textContent = '♥';
-  heart.style.left = Math.random() * 100 + 'vw';
-  heart.style.fontSize = (12 + Math.random() * 18) + 'px';
-  heart.style.animationDuration = (6 + Math.random() * 7) + 's';
-  heart.style.opacity = (0.12 + Math.random() * 0.28).toFixed(2);
-  hearts.appendChild(heart);
-  setTimeout(() => heart.remove(), 14000);
+if (!hearts) return;
+const rect = hearts.getBoundingClientRect();
+const heart = document.createElement('span');
+heart.className = 'heart';
+heart.textContent = '♥';
+heart.style.position = 'absolute';
+heart.style.left = Math.random() * (rect.width || window.innerWidth) + 'px';
+heart.style.top = (rect.height || 0) + 'px';
+heart.style.fontSize = (12 + Math.random() * 18) + 'px';
+heart.style.animationDuration = (6 + Math.random() * 7) + 's';
+heart.style.opacity = (0.12 + Math.random() * 0.28).toFixed(2);
+hearts.appendChild(heart);
+setTimeout(() => heart.remove(), 14000);
 }
 
+if (openBtn) {
 openBtn.addEventListener('click', () => {
-  openBtn.classList.toggle('open');
-  if (openBtn.classList.contains('open')) {
-    currentDay = loadDay();
-    renderDay(currentDay);
-  }
+openBtn.classList.toggle('open');
+if (openBtn.classList.contains('open')) {
+currentDay = loadDay();
+renderDay(currentDay);
+}
 });
+}
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowRight' && currentDay < 13) {
-    currentDay++;
-    saveDay(currentDay);
-    renderDay(currentDay);
-  }
-  if (e.key === 'ArrowLeft' && currentDay > 0) {
-    currentDay--;
-    saveDay(currentDay);
-    renderDay(currentDay);
-  }
-});
+if (e.key === 'ArrowRight' && currentDay < TOTAL_DAYS - 1) {
+currentDay++;
+saveDay(currentDay);
+renderDay(currentDay);
+} if (e.key === 'ArrowLeft' && currentDay > 0) {
+currentDay--;
+saveDay(currentDay);
+renderDay(currentDay);
+} });
 
-musicBtn?.addEventListener('click', async () => {
-  try {
-    await music.play();
-    musicBtn.textContent = 'Música sonando ♥';
-  } catch {
-    musicBtn.textContent = 'No se pudo reproducir';
-  }
+if (musicBtn && music) {
+musicBtn.addEventListener('click', async () => {
+try {
+if (music.paused) {
+await music.play();
+musicBtn.textContent = 'Música sonando ♥';
+} else {
+music.pause();
+musicBtn.textContent = 'Pausar música';
+}
+} catch {
+musicBtn.textContent = 'No se pudo reproducir';
+}
 });
+}
 
 setInterval(createHeart, 320);
 renderDay(currentDay);
