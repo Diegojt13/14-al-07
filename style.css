@@ -210,6 +210,7 @@ body{
   left:50%;
   top:7%;
   width:min(90%, 600px);
+  height:min(72vh, 760px);
   transform:translateX(-50%) translateY(18px) scale(.98);
   background:rgba(255,250,247,.98);
   color:var(--ink);
@@ -220,7 +221,7 @@ body{
   opacity:0;
   transition:all .8s cubic-bezier(.2,.8,.2,1);
   pointer-events:none;
-  overflow:auto;
+  overflow:hidden;
   z-index:3;
 }
 
@@ -278,12 +279,34 @@ body{
 }
 
 .letter-body{
+  height:calc(100% - 165px);
+  overflow-y:auto;
+  padding-right:12px;
   font-size:1.02rem;
   line-height:1.95;
   color:#43313d;
   white-space:pre-wrap;
-  overflow:visible;
-  margin-top:2px;
+  scrollbar-width:thin;
+  scrollbar-color: var(--pink) rgba(255,255,255,.35);
+}
+
+.letter-body::-webkit-scrollbar{
+  width:10px;
+}
+
+.letter-body::-webkit-scrollbar-track{
+  background:rgba(255,255,255,.35);
+  border-radius:999px;
+}
+
+.letter-body::-webkit-scrollbar-thumb{
+  background:linear-gradient(180deg, var(--pink), var(--pink2));
+  border-radius:999px;
+  border:2px solid rgba(255,250,247,.98);
+}
+
+.letter-body::-webkit-scrollbar-thumb:hover{
+  background:linear-gradient(180deg, #ff4d78, #ff88a8);
 }
 
 .letter-body p{
@@ -291,7 +314,7 @@ body{
 }
 
 .letter-sign{
-  margin-top:22px;
+  margin-top:18px;
   padding-top:16px;
   border-top:1px solid rgba(179,62,99,.16);
   text-align:right;
@@ -368,12 +391,14 @@ body{
   }
   .letter{
     width:min(96%, 560px);
+    height:min(74vh, 720px);
     padding:22px 18px 20px;
   }
   .letter h2{
     font-size:1.6rem;
   }
   .letter-body{
+    height:calc(100% - 156px);
     font-size:.97rem;
     line-height:1.88;
   }
