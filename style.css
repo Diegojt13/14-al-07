@@ -453,3 +453,34 @@ body{
     align-items:center;
   }
 }
+
+.letter-body{
+  flex:1;
+  overflow-y:auto;
+  padding-right:12px;
+  font-size:1rem;
+  line-height:1.9;
+  color:#43313d;
+  white-space:pre-wrap;
+  scrollbar-width:thin;
+  scrollbar-color: var(--pink) rgba(255,255,255,.35);
+}
+
+.letter-body::-webkit-scrollbar{
+  width:10px;
+}
+
+.letter-body::-webkit-scrollbar-track{
+  background:rgba(255,255,255,.35);
+  border-radius:999px;
+}
+
+.letter-body::-webkit-scrollbar-thumb{
+  background:linear-gradient(180deg, var(--pink), var(--pink2));
+  border-radius:999px;
+  border:2px solid rgba(255,250,247,.98);
+}
+
+.letter-body::-webkit-scrollbar-thumb:hover{
+  background:linear-gradient(180deg, #ff4d78, #ff88a8);
+}
