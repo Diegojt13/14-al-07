@@ -10,7 +10,6 @@ const hearts = document.getElementById('hearts');
 const letterKicker = document.getElementById('letterKicker');
 const letterTitle = document.getElementById('letterTitle');
 const dayBadge = document.getElementById('dayBadge');
-const letter = document.getElementById('letter');
 
 const letters = [
   "Mi amor, hoy empiezo este detalle con mucha ilusión, porque no quería dejar pasar la oportunidad de recordarte lo importante que eres para mí. Eres una persona que me hace sentir tranquilo, feliz y afortunado, y cada día contigo confirma que lo bonito sí existe.",
@@ -46,32 +45,26 @@ const START = new Date(2026, 5, 24);
 const LAST_INDEX = letters.length - 1;
 let currentDay = 0;
 
-/* Fecha sin hora para comparar días */
 function dateOnly(d = new Date()) {
   return new Date(d.getFullYear(), d.getMonth(), d.getDate());
 }
 
-/* Clave simple para localStorage */
 function localDateKey(d = new Date()) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
-/* Día actual del ciclo */
 function todayIndex() {
   const now = dateOnly(new Date());
   const diff = Math.floor((now - START) / 86400000);
   return Math.max(0, Math.min(diff, LAST_INDEX));
 }
 
-/* Carga el día guardado o calcula uno nuevo */
 function loadDay() {
   const savedDate = localStorage.getItem('love_date');
   const savedDay = Number(localStorage.getItem('love_day'));
   const key = localDateKey();
 
-  if (savedDate === key && Number.isInteger(savedDay)) {
-    return savedDay;
-  }
+  if (savedDate === key && Number.isInteger(savedDay)) return savedDay;
 
   const day = todayIndex();
   localStorage.setItem('love_date', key);
@@ -79,13 +72,11 @@ function loadDay() {
   return day;
 }
 
-/* Guarda el día actual */
 function saveDay(day) {
   localStorage.setItem('love_date', localDateKey());
   localStorage.setItem('love_day', String(day));
 }
 
-/* Renderiza toda la información del día */
 function renderDay(index) {
   const day = index + 1;
 
@@ -100,7 +91,6 @@ function renderDay(index) {
   special.classList.toggle('show', index === LAST_INDEX);
 }
 
-/* Corazones flotando */
 function createHeart() {
   const heart = document.createElement('span');
   heart.className = 'heart';
@@ -113,7 +103,6 @@ function createHeart() {
   setTimeout(() => heart.remove(), 14000);
 }
 
-/* Abre/cierra carta */
 openBtn.addEventListener('click', () => {
   openBtn.classList.toggle('open');
   if (openBtn.classList.contains('open')) {
@@ -122,7 +111,6 @@ openBtn.addEventListener('click', () => {
   }
 });
 
-/* Flechas para navegar */
 document.addEventListener('keydown', (e) => {
   if (!openBtn.classList.contains('open')) return;
 
@@ -139,7 +127,6 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-/* Música final */
 musicBtn?.addEventListener('click', async () => {
   try {
     await music.play();
