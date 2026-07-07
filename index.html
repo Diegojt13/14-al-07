@@ -13,16 +13,14 @@
   <div class="hearts" id="hearts"></div>
   <div class="ambient ambient-1"></div>
   <div class="ambient ambient-2"></div>
-
+  
   <main class="page">
     <section class="header">
       <p class="eyebrow">14 cartas para ella</p>
       <h1>Hasta llegar a nuestro gran día</h1>
-      <p class="subtitle">
-        Una carta por día. La última será la más especial: foto, música y todo lo que siento por ti.
-      </p>
+      <p class="subtitle">Una carta por día. La última será la más especial: foto, música y todo lo que siento por ti.</p>
     </section>
-
+    
     <section class="progress-card">
       <div class="progress-info">
         <span id="dayLabel">Día 1 de 14</span>
@@ -32,14 +30,14 @@
         <div class="progress-fill" id="progressFill"></div>
       </div>
     </section>
-
+    
     <section class="stage">
       <button class="envelope" id="openBtn" aria-label="Abrir carta" type="button">
         <div class="envelope-shadow"></div>
         <div class="envelope-body"></div>
         <div class="envelope-flap"></div>
         <div class="envelope-seal">♥</div>
-
+        
         <article class="letter" id="letter">
           <header class="letter-head">
             <div class="letter-head-text">
@@ -48,17 +46,14 @@
             </div>
             <span class="badge" id="dayBadge">01</span>
           </header>
-
           <div class="letter-layout">
             <div class="letter-photo-wrap">
               <img src="foto.jpg" alt="Foto de nosotros" class="letter-photo" />
             </div>
-
             <div class="letter-text-wrap">
               <div class="letter-body" id="letterBody"></div>
               <div class="letter-sign" id="letterSign">
-                Con todo mi amor,<br>
-                <strong>Diego</strong>
+                Con todo mi amor,<br><strong>Diego</strong>
               </div>
             </div>
           </div>
@@ -66,7 +61,19 @@
       </button>
     </section>
 
-  
+    <section class="special" id="special">
+      <div class="special-card">
+        <div class="special-photo-box">
+          <img src="foto2.jpg" alt="Momento especial" class="special-photo" />
+        </div>
+        <div class="special-copy">
+          <h3>Nuestra Melodía</h3>
+          <p>Esta música me recuerda a cada momento a tu lado...</p>
+          <button class="music-btn" id="musicBtn">Reproducir Música ♥</button>
+          <audio id="music" src="musica.mp3" preload="auto"></audio>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script src="script.js"></script>
