@@ -1,4 +1,4 @@
-const openBtn = document.getElementById('openBtn');
+ const openBtn = document.getElementById('openBtn');
 const letterBody = document.getElementById('letterBody');
 const dayLabel = document.getElementById('dayLabel');
 const dayMood = document.getElementById('dayMood');
@@ -40,77 +40,57 @@ Quiero seguir sorprendiéndote, seguir construyendo recuerdos que confirmen lo q
 
 const START = new Date(2026, 5, 24); // 24/06/2026
 const END = new Date(2026, 6, 7); // 07/07/2026
-const TOTAL_DAYS = letters.length; // 14
 
 function localDateKey(d = new Date()) {
-return ${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')};
+return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
 function dateOnly(d) {
 return new Date(d.getFullYear(), d.getMonth(), d.getDate());
 }
 
-function clamp(v, a, b) {
-return Math.max(a, Math.min(v, b));
-}
-
 function todayIndex() {
 const now = dateOnly(new Date());
-const diff = Math.floor((now - dateOnly(START)) / 86400000);
-return clamp(diff, 0, TOTAL_DAYS - 1);
-}
-
-function safeParseInt(value, fallback = 0) {
-const n = Number(value);
-return Number.isInteger(n) ? n : fallback;
+const diff = Math.floor((now - START) / 86400000);
+return Math.max(0, Math.min(diff, 13));
 }
 
 function loadDay() {
-try {
 const savedDate = localStorage.getItem('love_date');
-const savedDay = safeParseInt(localStorage.getItem('love_day'), null);
+const savedDay = Number(localStorage.getItem('love_day'));
 const key = localDateKey();
 
 if (savedDate === key && Number.isInteger(savedDay)) {
-return clamp(savedDay, 0, TOTAL_DAYS - 1);
+return savedDay;
 }
 
 const day = todayIndex();
 localStorage.setItem('love_date', key);
 localStorage.setItem('love_day', String(day));
 return day;
-} catch (err) {
-return todayIndex();
-} }
+}
 
 function saveDay(day) {
-try {
 localStorage.setItem('love_date', localDateKey());
-localStorage.setItem('love_day', String(clamp(day, 0, TOTAL_DAYS - 1)));
-} catch (err) { /* ignore */ }
+localStorage.setItem('love_day', String(day));
 }
 
 let currentDay = loadDay();
 
 function renderDay(index) {
-index = clamp(index, 0, TOTAL_DAYS - 1);
 const day = index + 1;
-if (dayLabel) dayLabel.textContent = Día ${day} de ${TOTAL_DAYS};
-if (dayMood) dayMood.textContent = (index < TOTAL_DAYS - 1) ? "Una carta más para acercarnos" : "Ya llegó el gran día";
-if (progressFill) progressFill.style.width = ${(day / TOTAL_DAYS) * 100}%;
-if (letterBody) letterBody.innerHTML = <p>${letters[index].replace(/\n/g, "<br>")}</p>;
-if (special) special.classList.toggle('show', index === TOTAL_DAYS - 1);
+dayLabel.textContent = `Día ${day} de 14`;
+dayMood.textContent = index < 13 ? "Una carta más para acercarnos" : "Ya llegó el gran día";
+progressFill.style.width = `${(day / 14) * 100}%`;
+letterBody.innerHTML = `<p>${letters[index]}</p>`;
+special.classList.toggle('show', index === 13);
 }
 
 function createHeart() {
-if (!hearts) return;
-const rect = hearts.getBoundingClientRect();
 const heart = document.createElement('span');
 heart.className = 'heart';
 heart.textContent = '♥';
-heart.style.position = 'absolute';
-heart.style.left = Math.random() * (rect.width || window.innerWidth) + 'px';
-heart.style.top = (rect.height || 0) + 'px';
+heart.style.left = Math.random() * 100 + 'vw';
 heart.style.fontSize = (12 + Math.random() * 18) + 'px';
 heart.style.animationDuration = (6 + Math.random() * 7) + 's';
 heart.style.opacity = (0.12 + Math.random() * 0.28).toFixed(2);
@@ -118,7 +98,6 @@ hearts.appendChild(heart);
 setTimeout(() => heart.remove(), 14000);
 }
 
-if (openBtn) {
 openBtn.addEventListener('click', () => {
 openBtn.classList.toggle('open');
 if (openBtn.classList.contains('open')) {
@@ -126,34 +105,28 @@ currentDay = loadDay();
 renderDay(currentDay);
 }
 });
-}
 
 document.addEventListener('keydown', (e) => {
-if (e.key === 'ArrowRight' && currentDay < TOTAL_DAYS - 1) {
+if (e.key === 'ArrowRight' && currentDay < 13) {
 currentDay++;
 saveDay(currentDay);
 renderDay(currentDay);
-} if (e.key === 'ArrowLeft' && currentDay > 0) {
+}
+if (e.key === 'ArrowLeft' && currentDay > 0) {
 currentDay--;
 saveDay(currentDay);
 renderDay(currentDay);
-} });
+}
+});
 
-if (musicBtn && music) {
-musicBtn.addEventListener('click', async () => {
+musicBtn?.addEventListener('click', async () => {
 try {
-if (music.paused) {
 await music.play();
 musicBtn.textContent = 'Música sonando ♥';
-} else {
-music.pause();
-musicBtn.textContent = 'Pausar música';
-}
 } catch {
 musicBtn.textContent = 'No se pudo reproducir';
 }
 });
-}
 
 setInterval(createHeart, 320);
 renderDay(currentDay);
