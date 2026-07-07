@@ -137,7 +137,7 @@ body{
 }
 
 .stage{
-  width:min(92vw, 780px);
+  width:min(92vw, 820px);
   position:relative;
   display:grid;
   place-items:center;
@@ -145,7 +145,7 @@ body{
 
 .envelope{
   position:relative;
-  width:min(100%, 520px);
+  width:min(100%, 560px);
   aspect-ratio: 4 / 3;
   border:none;
   background:transparent;
@@ -208,11 +208,11 @@ body{
 .letter{
   position:absolute;
   left:50%;
-  top:7%;
-  width:min(92%, 680px);
-  height:min(78vh, 760px);
+  top:6%;
+  width:min(94%, 720px);
+  height:min(80vh, 820px);
   transform:translateX(-50%) translateY(18px) scale(.98);
-  background:rgba(255,250,247,.98);
+  background:rgba(255,250,247,.99);
   color:var(--ink);
   border-radius:30px;
   padding:26px;
@@ -225,15 +225,6 @@ body{
   z-index:3;
 }
 
-.letter::before{
-  content:"";
-  position:absolute;
-  inset:12px;
-  border:1px solid rgba(255,95,143,.10);
-  border-radius:22px;
-  pointer-events:none;
-}
-
 .envelope.open .letter{
   opacity:1;
   transform:translateX(-50%) translateY(-58px) scale(1);
@@ -243,8 +234,8 @@ body{
 .letter-head{
   display:flex;
   justify-content:space-between;
-  gap:16px;
   align-items:flex-start;
+  gap:16px;
   margin-bottom:18px;
   position:relative;
   z-index:1;
@@ -427,8 +418,8 @@ body{
 
 @media (max-width: 860px){
   .letter{
-    width:min(95%, 620px);
-    height:min(80vh, 760px);
+    width:min(95%, 640px);
+    height:min(82vh, 780px);
   }
 
   .letter-layout{
@@ -437,7 +428,7 @@ body{
   }
 
   .letter-photo-wrap{
-    min-height:220px;
+    min-height:200px;
   }
 }
 
