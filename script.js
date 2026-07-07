@@ -16,19 +16,16 @@ let slideshowInterval = null;
 
 // Rutas de las imágenes que rotarán exclusivamente en el Día 14 (puedes añadir todas las que quieras)
 const finalDayPhotos = [
-  "foto1.jpeg",
-  "foto2.jpeg",
-  "foto3.jpeg",
-  "foto4.jpeg",
-  "foto5.jpeg",
-  "foto6.jpeg",
-  "foto7.jpeg",
-  "foto8.jpeg",
-  "foto9.jpg",
-  "foto10.jpeg",
-  "foto11.jpeg",
-  "foto12.jpeg",
-  "foto13.jpeg"
+ "img1.jpg",
+  "img2.jpg",
+  "img3.jpg",
+  "img4.jpg",
+  "img5.jpg",
+  "img6.jpg",
+  "img7.jpg",
+  "img8.jpg",
+  "img9.jpg",
+  "img10.jpg"
 ];
 
 const letters = [
