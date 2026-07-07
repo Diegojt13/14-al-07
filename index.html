@@ -34,29 +34,29 @@
     </section>
 
     <section class="stage">
-      <button class="envelope" id="openBtn" aria-label="Abrir carta">
+      <button class="envelope" id="openBtn" aria-label="Abrir carta" type="button">
         <div class="envelope-shadow"></div>
         <div class="envelope-body"></div>
         <div class="envelope-flap"></div>
         <div class="envelope-seal">♥</div>
-      </button>
 
-      <article class="letter" id="letter">
-        <div class="letter-head">
-          <div>
-            <p class="letter-kicker" id="letterKicker">Carta de hoy</p>
-            <h2 id="letterTitle">Para ti</h2>
+        <article class="letter" id="letter">
+          <div class="letter-head">
+            <div>
+              <p class="letter-kicker" id="letterKicker">Carta de hoy</p>
+              <h2 id="letterTitle">Para ti</h2>
+            </div>
+            <span class="badge" id="dayBadge">01</span>
           </div>
-          <span class="badge" id="dayBadge">01</span>
-        </div>
 
-        <div class="letter-body" id="letterBody"></div>
+          <div class="letter-body" id="letterBody"></div>
 
-        <div class="letter-sign">
-          Con todo mi amor,<br>
-          <strong>Diego</strong>
-        </div>
-      </article>
+          <div class="letter-sign" id="letterSign">
+            Con todo mi amor,<br>
+            <strong>Diego</strong>
+          </div>
+        </article>
+      </button>
     </section>
 
     <section class="special" id="special">
@@ -67,10 +67,10 @@
           <p>
             Aquí va nuestra foto y una canción de fondo para cerrar estos 14 días con algo inolvidable.
           </p>
-          <button class="music-btn" id="musicBtn">Activar música</button>
+          <button class="music-btn" id="musicBtn" type="button">Activar música</button>
         </div>
       </div>
-      <audio id="music" loop>
+      <audio id="music" loop preload="auto">
         <source src="cancion.mp3" type="audio/mpeg">
       </audio>
     </section>
