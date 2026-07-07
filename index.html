@@ -47,9 +47,8 @@
             <span class="badge" id="dayBadge">01</span>
           </header>
           <div class="letter-layout">
-            <div class="letter-photo-wrap">
-              <img src="foto.jpg" alt="Foto de nosotros" class="letter-photo" />
-            </div>
+            <div class="letter-photo-wrap" id="photoSlideshow">
+              </div>
             <div class="letter-text-wrap">
               <div class="letter-body" id="letterBody"></div>
               <div class="letter-sign" id="letterSign">
@@ -61,7 +60,19 @@
       </button>
     </section>
 
- 
+    <section class="special" id="special">
+      <div class="special-card">
+        <div class="special-photo-box">
+          <img src="foto2.jpg" alt="Momento especial" class="special-photo" />
+        </div>
+        <div class="special-copy">
+          <h3>Nuestra Melodía</h3>
+          <p>Esta música me recuerda a cada momento a tu lado...</p>
+          <button class="music-btn" id="musicBtn">Reproducir Música ♥</button>
+          <audio id="music" src="musica.mp3" preload="auto"></audio>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script src="script.js"></script>
